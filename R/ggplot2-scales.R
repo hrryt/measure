@@ -9,7 +9,7 @@ new_scale_measure_class <- function(super) {
 #' aesthetic label.
 #'
 #' `make_title()` is redefined to return a formula derived from
-#' `super$make_title()` and `units`.
+#' `super$make_title()` and `units`. See [plot_math()].
 #'
 #' `transform()` is redefined to set `units` to `units(x)` and pass a plain
 #' `double` to `super$transform()`.
@@ -40,6 +40,7 @@ enmeasure_scale <- function(super) {
 # #' @description `ggplot2` scales that add units from `measure` objects to their aesthetic labels
 # #' @param ... passed to the corresponding `ggplot2` scale function of `*_measure()`, such as [ggplot2::scale_x_continuous()]
 # #' @returns The result of [`enmeasure_scale`]`(scale_*(...))`
+# #' @name scale_measure
 # "
 # cat(
 #   file = "R/scale_measure.R", sep = "", scale_measure,

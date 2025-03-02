@@ -40,6 +40,7 @@ zero_measure <- function(x = double(), units = blank_units()) {
 #' [`lubridate::interval`], or [`lubridate::period`] object
 #' @param units,value a character value. See Details
 #' @returns An object of class `measure`
+#' @seealso [scale_x_measure()]
 #'
 #' @export
 measure <- function(x = double(), units = attr(x, "units")) {

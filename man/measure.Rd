@@ -50,3 +50,6 @@ Units have no restriction, although \code{\link{difftime}} units are converted t
 \code{s}, \code{min}, \code{hour}, \code{day} and \code{week}.
 }
 
+\seealso{
+\code{\link[=scale_x_measure]{scale_x_measure()}}
+}

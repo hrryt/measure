@@ -20,7 +20,7 @@ aesthetic label.
 }
 \details{
 \code{make_title()} is redefined to return a formula derived from
-\code{super$make_title()} and \code{units}.
+\code{super$make_title()} and \code{units}. See \code{\link[=plot_math]{plot_math()}}.
 
 \code{transform()} is redefined to set \code{units} to \code{units(x)} and pass a plain
 \code{double} to \code{super$transform()}.

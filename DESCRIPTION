@@ -5,8 +5,8 @@ Version: 0.1.0
 Description: Adds a new class 'measure' for which methods of base functions,
     such as arithmetic and comparative operators and summary functions, are
     defined such that the units of 'measure' objects are automatically updated.
-    Allows conversion between units and is compatible with various time interval
-    objects.
+    Allows conversion between units, is compatible with various time interval
+    objects, e.g. 'lubridate' periods, and has custom `ggplot2` scales.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

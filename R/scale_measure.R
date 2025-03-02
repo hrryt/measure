@@ -2,6 +2,7 @@
 #' @description `ggplot2` scales that add units from `measure` objects to their aesthetic labels
 #' @param ... passed to the corresponding `ggplot2` scale function of `*_measure()`, such as [ggplot2::scale_x_continuous()]
 #' @returns The result of [`enmeasure_scale`]`(scale_*(...))`
+#' @name scale_measure
 #' @rdname scale_measure
 #' @export
 scale_linewidth_ordinal_measure <- function(...) {
