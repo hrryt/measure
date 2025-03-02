@@ -1,0 +1,116 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%",
+  dpi = 144
+)
+
+options(crayon.enabled = TRUE)
+knitr::knit_hooks$set(output = function(x, options) paste0(
+  '<div class="sourceCode"><pre class="sourceCode"><code class="sourceCode">',
+  paste0(fansi::sgr_to_html(htmltools::htmlEscape(x)), collapse = "\n"),
+  "</code></pre></div>"
+))
+```
+
+# measure
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of measure is to integrate automatic unit handling into data analysis workflows.
+
+## Installation
+
+You can install the development version of measure like so:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("hrryt/measure")
+```
+
+## Example
+
+```{r libs, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(measure)
+```
+
+Use `measure()` to make new `measure` objects and to convert between units.
+
+Units are handled for you when carrying out arithmetic operations.
+
+```{r dplyr}
+bodyindex <- starwars |>
+  mutate(
+    mass = measure(mass, "kg"), # add units to a measurement
+    height = measure(height, "c|m"), # vertical bar indicates SI prefix
+    bmi0 = mass / height^2, # arithmetic operators preserve units
+    bmi = measure(bmi0, "kg m^-2") # convert units
+  ) |>
+  select(name:mass, bmi0:bmi)
+
+bodyindex |> arrange(desc(mass))
+```
+
+Units are automatically annotated onto `ggplot2` plots with 'enmeasured' scales.
+
+Every `ggplot2` scale has a `*_measure` equivalent.
+
+```{r ggplot2}
+breaks <- scales::breaks_extended(7)
+
+bodyindex |>
+  filter(mass < measure(200, "kg")) |>
+  ggplot(aes(mass, height, color = bmi)) +
+  geom_point(size = 5) +
+  # two methods of achieving the same thing:
+  scale_x_log10(breaks = breaks) |> enmeasure_scale() +
+  scale_y_log10_measure(breaks = breaks) +
+  # units are appended onto the label of an 'enmeasured' scale:
+  scale_color_viridis_c_measure(trans = "log10") +
+  labs(color = "BMI", title = "Body Mass Index of Star Wars Characters")
+```
+
+```{r plays}
+(plays <- lakers |>
+  tibble() |>
+  mutate(
+    date = ymd(date),
+    time = ms(time),
+    team,
+    points = measure(points, "point"),
+    .keep = "used"
+  ))
+```
+
+`measure` works seamlessly with `difftime` and `hms` objects, and
+`lubridate` periods, intervals and durations.
+
+Unlike most time objects, `measure` units are preserved through summary functions.
+
+```{r time}
+plays |>
+  mutate(time = measure(time, "min")) |>
+  group_by(date, team) |>
+  summarise(
+    time = max(time),
+    points = sum(points),
+    rate = points / time,
+    .groups = "keep"
+  ) |>
+  group_by(team) |>
+  summarise(
+    time = first(time),
+    points = mean(points),
+    rate = median(rate)
+  )
+```
