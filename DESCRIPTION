@@ -24,3 +24,4 @@ Config/testthat/edition: 3
 Authors@R: 
     person("Harry", "Thompson", , "harry@mayesfield.uk", role = c("cre", "aut"))
 Roxygen: list(markdown = TRUE)
+URL: https://hrryt.github.io/measure/
