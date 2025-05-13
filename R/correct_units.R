@@ -36,12 +36,12 @@ correct_units <- function(x) {
   powers_by_unique <- colSums(powers * map_unique)
 
   prefices <- pref(x)
-  prefices_by_unique <- apply(map_unique, 2, \(i) prefices[i], simplify = FALSE)
+  prefices_by_unique <- apply(map_unique, 2, function(i) prefices[i], simplify = FALSE)
   first_prefices <- vapply(prefices_by_unique, `[[`, character(1), 1)
   not_first_prefix <- .mapply(`!=`, list(prefices_by_unique, first_prefices), NULL)
 
   mag_diff_to_first <- .mapply(mag_diff, list(prefices_by_unique, not_first_prefix), NULL)
-  power_mag <- \(i) mag_diff_to_first[[i]] * powers[map_unique[, i]][not_first_prefix[[i]]]
+  power_mag <- function(i) mag_diff_to_first[[i]] * powers[map_unique[, i]][not_first_prefix[[i]]]
   mag_diff_powered <- lapply(seq_len(ncol(map_unique)), power_mag)
   mult <- mult(x) * 10^do.call(sum, mag_diff_powered)
 
