@@ -1,7 +1,7 @@
 Package: measure
 Type: Package
 Title: Automatic Unit Handling for Numeric Vectors
-Version: 0.1.0
+Version: 0.1.1
 Description: Adds a new class 'measure' for which methods of base functions,
     such as arithmetic and comparative operators and summary functions, are
     defined such that the units of 'measure' objects are automatically updated.
