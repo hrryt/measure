@@ -17,6 +17,9 @@
 #' @param x a [`measure`] object
 #' @param units a character value
 #' @returns A `measure` object with new units
+#' @examples
+#' x <- measure(1:5, "m s^-1")
+#' convert_units(x, "k|m hour^-1")
 #'
 #' @export
 convert_units <- function(x, units) {

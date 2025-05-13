@@ -11,7 +11,7 @@ enmeasure_scale(super)
 like \code{\link[ggplot2:scale_continuous]{ggplot2::scale_x_continuous()}}}
 }
 \value{
-A \code{\link[ggplot2:ggproto]{ggplot2::ggproto}} object
+A \code{\link[ggplot2:ggplot2-ggproto]{ggplot2::Scale}} object
 }
 \description{
 Create a \code{\link[ggplot2:ggproto]{ggplot2::ggproto}} object that inherits from \code{super}, designed
@@ -24,4 +24,14 @@ aesthetic label.
 
 \code{transform()} is redefined to set \code{units} to \code{units(x)} and pass a plain
 \code{double} to \code{super$transform()}.
+}
+\examples{
+library(ggplot2)
+p <- ggplot(mpg, aes(measure(displ, "L"))) + geom_histogram()
+s <- scale_x_continuous("Engine displacement")
+p + enmeasure_scale(s)
+
+}
+\seealso{
+\code{\link[=scale_x_measure]{scale_x_measure()}}
 }

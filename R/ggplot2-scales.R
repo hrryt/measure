@@ -16,7 +16,14 @@ new_scale_measure_class <- function(super) {
 #'
 #' @param super a [`ggplot2::Scale`] object returned from a `scale_*()` function
 #' like [ggplot2::scale_x_continuous()]
-#' @returns A [`ggplot2::ggproto`] object
+#' @returns A [`ggplot2::Scale`] object
+#' @seealso [scale_x_measure()]
+#' @examples
+#' library(ggplot2)
+#' p <- ggplot(mpg, aes(measure(displ, "L"))) + geom_histogram()
+#' s <- scale_x_continuous("Engine displacement")
+#' p + enmeasure_scale(s)
+#'
 #' @export
 enmeasure_scale <- function(super) {
   ggplot2::ggproto(

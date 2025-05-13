@@ -29,3 +29,10 @@ Check if an object inherits the \code{measure} class, or coerce to \code{measure
 \code{is.measure()} and \code{as.measure()} are aliases of \code{is_measure()} and
 \code{as_measure()} respectively.
 }
+\examples{
+(x <- measure(1:5, "m"))
+is_measure(x)
+(y <- as_measure(1:5))
+is_measure(y)
+
+}

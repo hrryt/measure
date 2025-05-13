@@ -50,6 +50,27 @@ Units have no restriction, although \code{\link{difftime}} units are converted t
 \code{s}, \code{min}, \code{hour}, \code{day} and \code{week}.
 }
 
+\examples{
+(speed <- measure(1:5, "m s^-1"))
+(time <- measure(50, "min"))
+as.difftime(time)
+(distance <- speed * time)
+units(distance)
+(distance <- measure(distance, "k|m"))
+
+distance[2:3] <- measure(200, "m")
+distance^2
+mean(distance)
+
+units(distance) <- "kilometers"
+range(distance)
+as.numeric(distance)
+
+units(distance) <- NULL
+distance
+log(distance)
+
+}
 \seealso{
 \code{\link[=scale_x_measure]{scale_x_measure()}}
 }

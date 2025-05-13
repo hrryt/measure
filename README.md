@@ -4,12 +4,19 @@
 # measure
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 The goal of measure is to integrate automatic unit handling into data
 analysis workflows.
 
 ## Installation
+
+You can install measure with the following command:
+
+``` r
+install.packages("measure")
+```
 
 You can install the development version of measure like so:
 

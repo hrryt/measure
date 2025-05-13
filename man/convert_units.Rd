@@ -17,3 +17,8 @@ A \code{measure} object with new units
 \description{
 Convert the units of a \code{measure} object to newly specified units.
 }
+\examples{
+x <- measure(1:5, "m s^-1")
+convert_units(x, "k|m hour^-1")
+
+}

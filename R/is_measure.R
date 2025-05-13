@@ -8,6 +8,11 @@
 #' @param x an R object
 #' @returns For `is_measure()`, a logical value.
 #' For `as_measure()`, the result of [measure()]
+#' @examples
+#' (x <- measure(1:5, "m"))
+#' is_measure(x)
+#' (y <- as_measure(1:5))
+#' is_measure(y)
 #'
 #' @export
 is_measure <- function(x) inherits(x, "measure")

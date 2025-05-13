@@ -421,3 +421,11 @@ The result of \code{\link{enmeasure_scale}}\code{(scale_*(...))}
 \description{
 \code{ggplot2} scales that add units from \code{measure} objects to their aesthetic labels
 }
+\examples{
+library(ggplot2)
+
+ggplot(mpg, aes(measure(displ, "L"))) +
+  geom_histogram() +
+  scale_x_measure("Engine displacement")
+
+}

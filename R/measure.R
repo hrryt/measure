@@ -41,6 +41,25 @@ zero_measure <- function(x = double(), units = blank_units()) {
 #' @param units,value a character value. See Details
 #' @returns An object of class `measure`
 #' @seealso [scale_x_measure()]
+#' @examples
+#' (speed <- measure(1:5, "m s^-1"))
+#' (time <- measure(50, "min"))
+#' as.difftime(time)
+#' (distance <- speed * time)
+#' units(distance)
+#' (distance <- measure(distance, "k|m"))
+#'
+#' distance[2:3] <- measure(200, "m")
+#' distance^2
+#' mean(distance)
+#'
+#' units(distance) <- "kilometers"
+#' range(distance)
+#' as.numeric(distance)
+#'
+#' units(distance) <- NULL
+#' distance
+#' log(distance)
 #'
 #' @export
 measure <- function(x = double(), units = attr(x, "units")) {

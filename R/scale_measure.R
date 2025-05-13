@@ -2,6 +2,13 @@
 #' @description `ggplot2` scales that add units from `measure` objects to their aesthetic labels
 #' @param ... passed to the corresponding `ggplot2` scale function of `*_measure()`, such as [ggplot2::scale_x_continuous()]
 #' @returns The result of [`enmeasure_scale`]`(scale_*(...))`
+#' @examples
+#' library(ggplot2)
+#'
+#' ggplot(mpg, aes(measure(displ, "L"))) +
+#'   geom_histogram() +
+#'   scale_x_measure("Engine displacement")
+#'
 #' @name scale_measure
 #' @rdname scale_measure
 #' @export
