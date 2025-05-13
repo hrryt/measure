@@ -262,6 +262,16 @@ setMethod("rep_len", c(x = "measure"), function(x, length.out) {
   zero_measure(callGeneric(), u)
 })
 
+#' @export
+setGeneric("rep.int")
+
+#' @export
+setMethod("rep.int", c(x = "measure"), function(x, times) {
+  u <- units(x)
+  x <- get_data(x)
+  zero_measure(callGeneric(), u)
+})
+
 #' @importMethodsFrom lubridate as.difftime
 #' @export
 setMethod(

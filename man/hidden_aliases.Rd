@@ -42,6 +42,7 @@
 \alias{plot,measure,ANY-method}
 \alias{rep,measure-method}
 \alias{rep_len,measure-method}
+\alias{rep.int,measure-method}
 \alias{show,measure-method}
 \title{For S4 methods that require a documentation entry but only clutter the index.}
 \description{

@@ -38,6 +38,6 @@ NULL
 #'  as.difftime,measure-method
 #'  c,measure-method length<-,measure-method
 #'  plot,measure,measure-method plot,ANY,measure-method plot,measure,ANY-method
-#'  rep,measure-method rep_len,measure-method
+#'  rep,measure-method rep_len,measure-method rep.int,measure-method
 #'  show,measure-method
 NULL

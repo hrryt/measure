@@ -18,14 +18,6 @@ seq.measure <- function(from, to, by = ((to - from)/(length.out - 1)),
 }
 
 #' @export
-#' @method rep.int measure
-rep.int.measure <- function(x, times) {
-  u <- units(x)
-  x <- get_data(x)
-  zero_measure(NextMethod(), u)
-}
-
-#' @export
 Math.measure <- function(x, ...) {
   switch(
     .Generic,
