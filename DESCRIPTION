@@ -10,7 +10,7 @@ Description: Adds a new class 'measure' for which methods of base functions,
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Imports:
     pillar,
     cli,
@@ -22,6 +22,6 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Authors@R: 
-    person("Harry", "Thompson", , "harry@mayesfield.uk", role = c("cre", "aut"))
+    person("Harry", "Thompson", , "harry@mayesfield.uk", role = c("cre", "aut", "cph"))
 Roxygen: list(markdown = TRUE)
 URL: https://hrryt.github.io/measure/

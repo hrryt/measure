@@ -7,8 +7,15 @@
 \description{
 Adds a new class 'measure' for which methods of base functions, such as arithmetic and comparative operators and summary functions, are defined such that the units of 'measure' objects are automatically updated. Allows conversion between units, is compatible with various time interval objects, e.g. 'lubridate' periods, and has custom `ggplot2` scales.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://hrryt.github.io/measure/}
+}
+
+}
 \author{
-\strong{Maintainer}: Harry Thompson \email{harry@mayesfield.uk}
+\strong{Maintainer}: Harry Thompson \email{harry@mayesfield.uk} [copyright holder]
 
 }
 \keyword{internal}
