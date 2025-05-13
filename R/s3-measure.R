@@ -27,7 +27,6 @@ Math.measure <- function(x, ...) {
     sinpi = , tanpi = , acos = , asin = , atan = , cosh = , sinh = , tanh = ,
     acosh = , asinh = , atanh = , lgamma = , gamma = , digamma = , trigamma = ,
     cumprod = {
-      if(unitless(x)) return(new_measure(NextMethod()))
       x <- get_unitless(x)
       new_measure(NextMethod())
     },
